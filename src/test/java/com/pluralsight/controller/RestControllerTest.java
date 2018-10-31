@@ -27,4 +27,17 @@ public class RestControllerTest {
 			System.out.println("Ride name: " + ride.getName());
 		}
 	}
+
+	@Test
+	public void testCreateRide(){
+		RestTemplate restTemplate = new RestTemplate();
+		Ride ride = new Ride();
+
+		ride.setName("Bobsledd trailride");
+		ride.setDuration(35);
+
+		restTemplate.put("http://localhost:8080/ride_tracker/ride", ride);
+
+
+	}
 }
